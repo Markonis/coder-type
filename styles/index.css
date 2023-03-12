@@ -1,0 +1,46 @@
+html {
+	width: 100%;
+	height: 100%;
+	padding: 10rem;
+	font-family: monospace;
+	font-size: 18px;
+}
+
+main {
+	height: 500px;
+}
+
+#terminal {
+	overflow-y: auto;
+	max-height: 20em;
+}
+
+/* Define the animation */
+@keyframes alternating-colors {
+	0% {
+		color: var(--background-color);
+		background-color: var(--foreground-color);
+	}
+
+	50% {
+		color: var(--foreground-color);
+		background-color: var(--background-color);
+	}
+}
+
+.cursor {
+	animation: alternating-colors 2s steps(1, jump-end) infinite;
+}
+
+.next {
+	opacity: 0.5;
+}
+
+.wrong {
+	color: var(--wrong-color);
+}
+
+.wrong[data-whitespace] {
+	background-color: var(--wrong-color);
+	opacity: 0.8;
+}

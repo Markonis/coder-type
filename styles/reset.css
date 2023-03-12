@@ -1,0 +1,42 @@
+/* Reset box-sizing to border-box */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+ul,
+ol,
+li,
+table,
+tr,
+td,
+pre {
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove list style */
+ul,
+ol {
+	list-style: none;
+}
+
+/* Remove text decoration and set color */
+a {
+	text-decoration: none;
+	color: inherit;
+}
