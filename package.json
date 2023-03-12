@@ -2,10 +2,17 @@
 	"name": "coder-type",
 	"version": "1.0.0",
 	"description": "A speed typing game for real coders",
-	"main": "index.js",
 	"author": "Marko",
 	"license": "MIT",
+	"source": "index.html",
+	"scripts": {
+		"start": "parcel",
+		"clean": "rm -rf dist",
+		"build": "yarn clean && parcel build",
+		"deploy": "yarn build && firebase deploy --only hosting:coder-type"
+	},
 	"devDependencies": {
+		"firebase-tools": "^11.24.1",
 		"parcel": "^2.8.3",
 		"typescript": "^4.9.5"
 	}
