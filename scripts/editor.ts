@@ -171,7 +171,7 @@ export const startEditor = (code: string) => {
 				if (lineIndex < pageLines.length - 1) {
 					advanceLine();
 				}
-			}else {
+			} else {
 				return;
 			}
 			printStats(getResult());
