@@ -74,6 +74,7 @@ export const readLine = () => {
 				writeLineBreak();
 				resolve(line);
 			} else if (key === backspaceKey && line.length > 0) {
+        event.preventDefault();
 				line = line.slice(0, line.length - 1);
 				removeLastChar();
 			}
