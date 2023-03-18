@@ -93,7 +93,7 @@ const chooseOptionErrorMessages = [
 	["A", "I mean it this time."],
 	["Ok, you've had your fun... Simply enter a", "This is important!"],
 	["What does that even mean? Please, a", "I thought we were past this..."],
-	["Ok, wow... Do me a favor here with a1", "It's getting embarrassing now, really."],
+	["Ok, wow... Do me a favor here with a", "It's getting embarrassing now, really."],
 	["Let me check... Nope, that's not a", "Let's not play these games anymore, hm?"],
 ]
 
