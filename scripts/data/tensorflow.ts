@@ -156,7 +156,7 @@ void* GPUcudaMallocAllocator::AllocateRaw(size_t alignment, size_t num_bytes) {
 `,
 		},
 		{
-			path: "tensorflow/tensorflow/examples/speech_commands/accuracy_utils.py",
+			path: "tensorflow/examples/speech_commands/accuracy_utils.py",
 			code: `
 			def print_accuracy_stats(self):
 			"""Write a human-readable description of the statistics to stdout."""
@@ -177,7 +177,7 @@ void* GPUcudaMallocAllocator::AllocateRaw(size_t alignment, size_t num_bytes) {
 		`,
 		},
 		{
-			path: "tensorflow/tensorflow/dtensor/python/accelerator_util.py",
+			path: "tensorflow/dtensor/python/accelerator_util.py",
 			code: `
 			global _INITIALIZED_ACCELERATOR_SYSTEM_TYPE
   			assert context.executing_eagerly()
@@ -214,7 +214,7 @@ void* GPUcudaMallocAllocator::AllocateRaw(size_t alignment, size_t num_bytes) {
 			`,
 		},
 		{
-			path: "tensorflow/tensorflow/python/framework/auto_control_deps_test.py",
+			path: "tensorflow/python/framework/auto_control_deps_test.py",
 			code: `
 			class AutomaticControlDependenciesTest(test.TestCase):
 
