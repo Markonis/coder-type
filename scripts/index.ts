@@ -1,6 +1,7 @@
 import { Repo, RepoFile, repoOptions } from "./data";
 import { clearEditor, EditorResult, startEditor } from "./editor";
 import { chooseOption, clearTerminal, readLine, removeTerminalCursor, separatorLine, writeLines } from "./terminal";
+import { changeThemeColor } from "./changeTheme";
 
 const getRoundLine = (round: number, wantsToPlayAgain: boolean) => {
 	if (round === 1) return "Welcome to coder type!";
@@ -70,5 +71,7 @@ const runGame = async () => {
 		round++;
 	}
 }
+
+changeThemeColor()
 
 runGame();

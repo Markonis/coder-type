@@ -1,0 +1,17 @@
+.monokai:root {
+	--foreground-color: #e2e2dc;
+	--background-color: #272822;
+	--wrong-color: #f92672;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .monokai:root {
+        --foreground-color: #e2e2dc;
+        --background-color: #272822;
+    }
+}

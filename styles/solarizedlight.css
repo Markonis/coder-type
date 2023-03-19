@@ -1,0 +1,17 @@
+.solarizedlight:root {
+	--foreground-color: #181819;
+	--background-color: #fdf6e3;
+	--wrong-color: #d33682;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	.solarizedlight:root {
+        --foreground-color: #181819;
+        --background-color: #fdf6e3;
+	}
+}

@@ -1,0 +1,17 @@
+.catppuccin:root {
+	--foreground-color: #d9e0ee;
+	--background-color: #1e1e2e;
+	--wrong-color: #f28fad;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	.catppuccin:root {
+		--foreground-color: #d9e0ee;
+		--background-color: #1e1e2e;
+	}
+}

@@ -44,3 +44,21 @@ main {
 	background-color: var(--wrong-color);
 	opacity: 0.8;
 }
+
+select {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--foreground-color);
+    border-radius: 5px;
+    font-size: 18px;
+    color: var(--foreground-color);
+}
+
+option {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    padding: 3px;
+}

@@ -1,0 +1,17 @@
+.rosepine:root {
+	--foreground-color: #e0def4;
+	--background-color: #1f1d27;
+	--wrong-color: #eb6f92;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	.rosepine:root {
+		--foreground-color: #e0def4;
+		--background-color: #1f1d27;
+	}
+}
