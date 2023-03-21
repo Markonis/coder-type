@@ -1,5 +1,6 @@
 import { backspaceKey, enterKey, tabKey } from "./keyboard";
 import { separatorLine } from "./terminal";
+import { History } from "./data/index"
 
 const editorElement = document.getElementById("editor") as HTMLElement;
 const statsElement = document.getElementById("stats") as HTMLElement;
@@ -68,6 +69,7 @@ export const startEditor = (code: string) => {
 		let correctCharacters = 0;
 		let pageLines = allLines.slice(firstLineIndex, linesPerPage);
 		let line = pageLines[lineIndex];
+		let lineHistory: History[] = []
 		let element = printCode(pageLines);
 		let startTime = 0;
 		let timeoutHandle = 0;
@@ -97,6 +99,7 @@ export const startEditor = (code: string) => {
 		}
 
 		const advanceLine = () => {
+			lineHistory.push({ lineCorrectness, line })
 			line = pageLines[++lineIndex];
 			charIndex = 0;
 			lineCorrectness = []
@@ -107,7 +110,23 @@ export const startEditor = (code: string) => {
 			advanceWhitespace();
 		}
 
+		const backspaceLine = () => {
+			if (lineHistory.length > 0) {
+				--lineIndex
+				const history = lineHistory.pop() as History
+				line = history.line
+				lineCorrectness = history.lineCorrectness
+				charIndex = line.length - 1
+				element.classList.remove(cursorClassName);
+				element.classList.add(nextClassName);
+				// because there is a <br> element at the beginning line
+				element = element.previousElementSibling?.previousElementSibling as Element;
+				element.classList.add(cursorClassName);
+			}
+		}
+
 		const advancePage = () => {
+			lineHistory = []
 			firstLineIndex += pageLines.length;
 			pageLines = allLines.slice(firstLineIndex, firstLineIndex + linesPerPage);
 			lineIndex = 0;
@@ -165,6 +184,8 @@ export const startEditor = (code: string) => {
 				}
 			} else if (charIndex > 0 && key === backspaceKey) {
 				applyBackspace();
+			}  else if ( charIndex === 0 && lineHistory.length > 0 ) {
+				backspaceLine()
 			} else if (charIndex === line.length - 1 && key === enterKey) {
 				totalCharacters++;
 				correctCharacters++;
