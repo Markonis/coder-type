@@ -7,9 +7,7 @@ The code speed typing game you have been looking for. Mainly its a part of video
 
 
 ## Demo
-
-Insert gif or link to demo
-
+[FOSS 1 .webm](https://user-images.githubusercontent.com/102357739/226584755-331c2e89-7d49-4156-a0f8-3bada05fd572.webm)
 
 ## Run it in your Local Machine
 
