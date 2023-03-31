@@ -1,4 +1,4 @@
-import { Repo } from ".";
+import { Repo } from "./index.js";
 
 export const tensorFlowRepo: Repo = {
 	label: "TensorFlow",

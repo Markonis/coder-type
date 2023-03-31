@@ -1,4 +1,4 @@
-import { backspaceKey, enterKey } from "./keyboard";
+import { backspaceKey, enterKey } from "./keyboard.js";
 
 const terminalElement = document.getElementById("terminal") as HTMLElement;
 const cursorElement = document.getElementById("cursor") as HTMLElement;

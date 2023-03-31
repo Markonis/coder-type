@@ -1,6 +1,6 @@
-import { linuxRepo } from "./linux";
-import { reactRepo } from "./react";
-import { tensorFlowRepo } from "./tensorflow";
+import { linuxRepo } from "./linux.js";
+import { reactRepo } from "./react.js";
+import { tensorFlowRepo } from "./tensorflow.js";
 
 export type RepoFile = {
 	path: string;
