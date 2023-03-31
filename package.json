@@ -1,19 +1,27 @@
 {
-	"name": "coder-type",
-	"version": "1.0.0",
-	"description": "A speed typing game for real coders",
-	"author": "Marko",
-	"license": "MIT",
-	"source": "index.html",
-	"scripts": {
-		"start": "parcel",
-		"clean": "rm -rf dist",
-		"build": "yarn clean && parcel build",
-		"deploy": "yarn build && firebase deploy --only hosting:coder-type"
-	},
-	"devDependencies": {
-		"firebase-tools": "^11.24.1",
-		"parcel": "^2.8.3",
-		"typescript": "^4.9.5"
-	}
+  "name": "coder-type",
+  "version": "1.0.0",
+  "description": "This is a silly typing game I made as an experiment to see how much can chatGPT help me in coding.",
+  "author": "Marko",
+  "license": "MIT",
+  "source": "index.html",
+  "scripts": {
+    "dev":"tsc --watch ./scripts",
+    "start": "parcel",
+    "clean": "rm -rf dist",
+    "build": "npm clean && parcel build",
+    "deploy": "npm build && firebase deploy --only hosting:coder-type"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-openspace/coder-type.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Developer-openspace/coder-type/issues"
+  },
+  "homepage": "https://github.com/Developer-openspace/coder-type#readme"
 }
