@@ -1,5 +1,5 @@
-import { Repo, RepoFile, repoOptions } from "./data";
-import { clearEditor, EditorResult, startEditor } from "./editor";
+import { Repo, RepoFile, repoOptions } from "./data/index.js";
+import { clearEditor, EditorResult, startEditor } from "./editor.js";
 import {
 	chooseOption,
 	clearTerminal,
@@ -7,7 +7,7 @@ import {
 	removeTerminalCursor,
 	separatorLine,
 	writeLines,
-} from "./terminal";
+} from "./terminal.js";
 
 const getRoundLine = (round: number, wantsToPlayAgain: boolean) => {
 	if (round === 1) return "Welcome to coder type!";

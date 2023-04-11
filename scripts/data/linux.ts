@@ -1,4 +1,4 @@
-import { Repo } from ".";
+import { Repo } from "./index.js";
 
 export const linuxRepo: Repo = {
 	label: "Linux Kernel",

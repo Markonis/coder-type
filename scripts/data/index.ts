@@ -1,6 +1,7 @@
-import { linuxRepo } from "./linux";
-import { reactRepo } from "./react";
-import { tensorFlowRepo } from "./tensorflow";
+import { linuxRepo } from "./linux.js";
+import { reactRepo } from "./react.js";
+import { rustRepo } from "./rust.js";
+import { tensorFlowRepo } from "./tensorflow.js";
 
 export type RepoFile = {
 	path: string;
@@ -16,5 +17,6 @@ export type Repo = {
 export const repoOptions: Repo[] = [
 	linuxRepo,
 	reactRepo,
-	tensorFlowRepo
+	tensorFlowRepo,
+	rustRepo,
 ]

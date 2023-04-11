@@ -1,5 +1,5 @@
-import { backspaceKey, enterKey, tabKey } from "./keyboard";
-import { separatorLine } from "./terminal";
+import { backspaceKey, enterKey, tabKey } from "./keyboard.js";
+import { separatorLine } from "./terminal.js";
 
 const editorElement = document.getElementById("editor") as HTMLElement;
 const statsElement = document.getElementById("stats") as HTMLElement;
