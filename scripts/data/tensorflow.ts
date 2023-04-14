@@ -28,12 +28,11 @@ def _is_known_loaded_type(f, module_name, entity_name):
     if isinstance(f.__func__, type_entity):
       return True
   return False
-`
+`,
 		},
 		{
 			path: "/tensorflow/python/framework/combinations.py",
-			code:
-				`
+			code: `
 class EagerGraphCombination(test_combinations.TestCombination):
   """
   The optional \`mode\` parameter controls the test's execution mode.  Its
@@ -64,12 +63,11 @@ class TFVersionCombination(test_combinations.TestCombination):
     elif tf_api_version == 2 and not tf2.enabled():
       return (False, "Skipping a TF2 test when TF2 is not enabled.")
     return (True, None)
-`
+`,
 		},
 		{
 			path: "/tensorflow/core/kernels/linalg/determinant_op.cc",
-			code:
-				`
+			code: `
 namespace tensorflow {
 	template <class Scalar>
 	static typename Eigen::NumTraits<Scalar>::Real SLogDet(
@@ -96,12 +94,11 @@ namespace tensorflow {
 		return log_abs_det;
 	}
 }
-`
+`,
 		},
 		{
 			path: "/tensorflow/core/grappler/graph_topology_view.cc",
-			code:
-				`
+			code: `
 template <typename T>
 inline void SortAndRemoveDuplicates(T* v) {
   std::sort(v->begin(), v->end());
@@ -128,12 +125,11 @@ Status GraphTopologyView::InitializeFromGraph(
     node_name_to_index_.emplace(node.name(), node_idx);
     index_to_node_name_.emplace_back(node.name());
   }
-`
+`,
 		},
 		{
 			path: "/tensorflow/core/common_runtime/gpu/gpu_cudamalloc_allocator.cc",
-			code:
-				`
+			code: `
 void* GPUcudaMallocAllocator::AllocateRaw(size_t alignment, size_t num_bytes) {
 	#ifdef GOOGLE_CUDA
 		// allocate with cudaMalloc
@@ -157,7 +153,92 @@ void* GPUcudaMallocAllocator::AllocateRaw(size_t alignment, size_t num_bytes) {
 		return nullptr;
 	#endif  // GOOGLE_CUDA
 	}
-`
-		}
+`,
+		},
+		{
+			path: "tensorflow/examples/speech_commands/accuracy_utils.py",
+			code: `
+			def print_accuracy_stats(self):
+			"""Write a human-readable description of the statistics to stdout."""
+			if self._how_many_gt == 0:
+			  tf.compat.v1.logging.info('No ground truth yet, {}false positives'.format(
+				  self._how_many_fp))
+			else:
+			  any_match_percentage = self._how_many_gt_matched / self._how_many_gt * 100
+			  correct_match_percentage = self._how_many_c / self._how_many_gt * 100
+			  wrong_match_percentage = self._how_many_w / self._how_many_gt * 100
+			  false_positive_percentage = self._how_many_fp / self._how_many_gt * 100
+			  tf.compat.v1.logging.info(
+				  '{:.1f}% matched, {:.1f}% correct, {:.1f}% wrong, '
+				  '{:.1f}% false positive'.format(any_match_percentage,
+												  correct_match_percentage,
+												  wrong_match_percentage,
+												  false_positive_percentage))
+		`,
+		},
+		{
+			path: "tensorflow/dtensor/python/accelerator_util.py",
+			code: `
+			global _INITIALIZED_ACCELERATOR_SYSTEM_TYPE
+  			assert context.executing_eagerly()
+
+  			if is_initialized():
+    			raise ValueError(
+        			"Accelerator system has already been initialized. "
+        			"Call tf.experimental.dtensor.shutdown_accelerator_system() first.")
+
+  			if experimental_reset_context:
+    			logging.warn(
+        			"experimental_reset_context is True. "
+        			"Resetting TensorFlow context. Existing TensorFlow objects "
+        			"(e.g. Tensors and resources) are invalidated."
+    			)
+    		context.context().ensure_uninitialized()  # pylint: disable=protected-access
+
+  			if context.context()._initialized:  # pylint: disable=protected-access
+    			raise ValueError(
+        			"TensorFlow has already been initialized. "
+        			"tf.experimental.dtensor.initialize_accelerator_system() must be "
+        			"called before TensorFlow is initialized.")
+
+  			context.context()._clear_caches()  # pylint: disable=protected-access
+
+  			if device_type is None:
+    			device_type = config.preferred_device_type()
+
+  			device_type = device_type.upper()
+  			if device_type not in {"CPU", "GPU", "TPU"}:
+    			raise ValueError(f"Unknown device_type {device_type}. "
+                     		"Allowed values are CPU, GPU, or TPU")
+
+			`,
+		},
+		{
+			path: "tensorflow/python/framework/auto_control_deps_test.py",
+			code: `
+			class AutomaticControlDependenciesTest(test.TestCase):
+
+				def setUp(self):
+					super().setUp()
+					self.must_run_order_insensitive_stateful_ops = (
+						acd.MUST_RUN_ORDER_INSENSITIVE_STATEFUL_OPS)
+
+				def tearDown(self):
+					acd.MUST_RUN_ORDER_INSENSITIVE_STATEFUL_OPS = (
+						self.must_run_order_insensitive_stateful_ops)
+					super().tearDown()
+
+				def testBasic(self):
+					with context.graph_mode(), self.cached_session():
+					v = resource_variable_ops.ResourceVariable(1.0)
+					self.evaluate(variables.global_variables_initializer())
+					with acd.AutomaticControlDependencies() as c:
+						v.assign(v + 1)
+						v.assign(2 * v)
+						val = v.read_value()
+						val = c.mark_as_return(val)
+					self.assertAllEqual(val, 4.0)
+			`,
+		},
 	],
-}
+};
