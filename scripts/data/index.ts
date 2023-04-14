@@ -13,6 +13,11 @@ export type Repo = {
 	files: RepoFile[];
 }
 
+export type History = {
+	lineCorrectness: boolean[];
+	line: string;
+}
+
 export const repoOptions: Repo[] = [
 	linuxRepo,
 	reactRepo,
