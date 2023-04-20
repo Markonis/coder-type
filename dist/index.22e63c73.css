@@ -1,0 +1,19 @@
+:root {
+  --foreground-color: black;
+  --background-color: white;
+  --wrong-color: red;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-color: white;
+    --background-color: black;
+  }
+}
+
+/*# sourceMappingURL=index.22e63c73.css.map */

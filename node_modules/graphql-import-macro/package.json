@@ -1,0 +1,22 @@
+{
+  "name": "graphql-import-macro",
+  "version": "1.0.0",
+  "description": "A simple parser and expander for GraphQL imports",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/squirly/graphql-import-macro.git"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "Tyler Jones <tyler@squirly.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/squirly/graphql-import-macro/issues"
+  },
+  "homepage": "https://github.com/squirly/graphql-import-macro#readme",
+  "dependencies": {
+    "graphql": "^15.0.0"
+  }
+}
