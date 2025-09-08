@@ -1,0 +1,81 @@
+/*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+
+.hljs > span {
+    --fade: 100%;
+    color: color-mix(in srgb, #c9d1d9 var(--fade), var(--bs-body-bg));
+}
+
+.hljs > .hljs-doctag, .hljs > .hljs-keyword, .hljs > .hljs-meta .hljs > .hljs-keyword, .hljs > .hljs-template-tag, .hljs > .hljs-template-variable, .hljs > .hljs-type, .hljs > .hljs-variable.language_ {
+    color:color-mix(in srgb, #ff7b72 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-title, .hljs > .hljs-title.class_, .hljs > .hljs-title.class_.inherited__, .hljs > .hljs-title.function_ {
+    color:color-mix(in srgb, #d2a8ff var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-attr, .hljs > .hljs-attribute, .hljs > .hljs-literal, .hljs > .hljs-meta, .hljs > .hljs-number, .hljs > .hljs-operator, .hljs > .hljs-selector-attr, .hljs > .hljs-selector-class, .hljs > .hljs-selector-id, .hljs > .hljs-variable {
+    color:color-mix(in srgb, #79c0ff var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-meta .hljs > .hljs-string, .hljs > .hljs-regexp, .hljs > .hljs-string {
+    color:color-mix(in srgb, #a5d6ff var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-built_in, .hljs > .hljs-symbol {
+    color:color-mix(in srgb, #ffa657 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-code, .hljs > .hljs-comment, .hljs > .hljs-formula {
+    color:color-mix(in srgb, #8b949e var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-name, .hljs > .hljs-quote, .hljs > .hljs-selector-pseudo, .hljs > .hljs-selector-tag {
+    color:color-mix(in srgb, #7ee787 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-subst {
+    color:color-mix(in srgb, #c9d1d9 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-section {
+    color:color-mix(in srgb, #1f6feb var(--fade), var(--bs-body-bg));
+    font-weight:700
+}
+
+.hljs > .hljs-bullet {
+    color:color-mix(in srgb, #f2cc60 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-emphasis {
+    color:color-mix(in srgb, #c9d1d9 var(--fade), var(--bs-body-bg));
+    font-style:italic
+}
+
+.hljs > .hljs-strong {
+    color:color-mix(in srgb, #c9d1d9 var(--fade), var(--bs-body-bg));
+    font-weight:700
+}
+
+.hljs > .hljs-addition {
+    color:color-mix(in srgb, #aff5b4 var(--fade), var(--bs-body-bg));
+    background-color:color-mix(in srgb, #033a16 var(--fade), var(--bs-body-bg))
+}
+
+.hljs > .hljs-deletion {
+    color:color-mix(in srgb, #ffdcd7 var(--fade), var(--bs-body-bg));
+    background-color:color-mix(in srgb, #67060c var(--fade), var(--bs-body-bg))
+}
+
+/* Typing Future (darken everything) */
+.hljs > .typing-future {
+    --fade: 50%;
+}

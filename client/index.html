@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeType</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="theme.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/javascript.min.js" integrity="sha512-yfJUrNGEC39mHLjZ37CZG69Ij9Vnan7NHxXVuuBxafgfk4F+n7j/NhNWtyhKGTYEgWfgUqzPYMZJZY1HIsPCbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  
+
+  <script src="index.js" defer></script>
+
+  <style>
+    typing-panel:focus-within .typing-current {
+      border-bottom: 1px solid white;
+    }
+
+    .typing-error {
+      background-color: #F008;
+    }
+  </style>
+</head>
+<body data-bs-theme="dark">
+  <div class="container p-4">
+    <h1>CodeType</h1>
+    <blockquote>
+      Talk is cheap. Show me the code!
+      <cite>- Linus Torvalds</cite>
+    </blockquote>
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex align-items-center gap-3">
+          <label for="snippet" class="text-nowrap">Code snippet:</label>
+          <snippet-select class="flex-fill"></snippet-select>
+        </div>
+      </div>
+      <div class="card-body">
+        <typing-panel class="overflow-hidden"></typing-panel>
+      </div>
+      <div class="card-footer">
+        <typing-tracker></typing-tracker>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="reportLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="reportLabel">Report</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <report-view></report-view>
+        </div>
+        <div class="modal-footer">
+          <button id="retry" tabindex="0" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retry</button>
+          <button id="next" tabindex="0" type="button" class="btn btn-primary" data-bs-dismiss="modal">Next Example</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

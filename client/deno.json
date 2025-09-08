@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "dev": "deno bundle --watch index.ts --output index.js",
+    "fix": "deno lint --fix *.ts && deno fmt *.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  },
+  "fmt": {
+    "lineWidth": 1000
+  },
+  "compilerOptions": {
+    "lib": ["dom", "ESNext"]
+  }
+}
