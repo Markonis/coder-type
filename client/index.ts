@@ -17,15 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const reportModal = new bootstrap.Modal(document.getElementById("report-modal")!);
   const reportView = document.querySelector(ReportView.tag)!;
   const next = document.getElementById("next")!;
+  const link = document.getElementById("snippet-url")! as HTMLAnchorElement;
 
   let snippetIndex = 0;
   function loadSnippet(index: number) {
     snippetIndex = index;
-    typingPanel.load(snippets[index]);
+
+    const snippet = snippets[index];
+    link.href = snippet.url;
+    link.text = snippet.url;
+
+    typingPanel.load(snippet);
     typingTracker.reset();
   }
 
-  typingPanel.load(snippets[0]);
+  loadSnippet(0);
+
   typingPanel.addEventListener(TypingPanel.events.type, (evt) => {
     typingTracker.onType(evt.detail);
   });

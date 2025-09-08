@@ -25,7 +25,7 @@ export class SnippetSelect extends HTMLElement {
     this.append(this.select);
     this.select.append(...SnippetSelect.options);
     this.select.addEventListener("change", () => {
-      const index = snippets.findIndex((s) => s.key === this.select.value);
+      const index = parseInt(this.select.value)
       if (index < 0) return;
       this.dispatchChange(index);
     });
@@ -46,9 +46,9 @@ export class SnippetSelect extends HTMLElement {
     this.dispatchChange(index);
   }
 
-  static options: HTMLOptionElement[] = snippets.map((sn) => {
+  static options: HTMLOptionElement[] = snippets.map((sn, index) => {
     const opt = document.createElement("option");
-    opt.value = sn.key;
+    opt.value = index.toString();
     opt.text = sn.label;
     return opt;
   });

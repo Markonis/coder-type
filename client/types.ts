@@ -1,3 +1,10 @@
+export type Snippet = {
+  label: string;
+  url: string;
+  language: string;
+  text: string;
+};
+
 export type TypeDetail = {
   isCorrect: boolean;
 };
