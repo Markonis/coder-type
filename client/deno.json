@@ -1,6 +1,7 @@
 {
   "tasks": {
     "dev": "deno bundle --watch index.ts --output index.js",
+    "build": "deno bundle index.ts --output index.js",
     "fix": "deno lint --fix *.ts && deno fmt *.ts"
   },
   "imports": {
