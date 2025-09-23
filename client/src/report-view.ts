@@ -54,8 +54,8 @@ export class ReportView extends HTMLElement {
     const stepX = pW / (buckets.length - 1);
     const stepY = pH / 4;
 
-    const cpmPoints = ReportView.points(buckets, h, pH, stepX, pad, (b) => b.cpm);
-    const accPoints = ReportView.points(buckets, h, pH, stepX, pad, (b) => b.acc);
+    const cpmPoints = ReportView.points(buckets, h, stepX, pad, (b) => b.cpm);
+    const accPoints = ReportView.points(buckets, h, stepX, pad, (b) => b.acc);
 
     let grid = "";
     for (let x = pad + stepX; x < pW; x += stepX) {
@@ -91,12 +91,12 @@ export class ReportView extends HTMLElement {
   static points(
     buckets: Bucket[],
     h: number,
-    pH: number,
     stepX: number,
     pad: number,
     mapper: (b: Bucket) => number,
   ): [number, number][] {
     const max = Math.max(...buckets.map(mapper));
+    const pH = h - 2 * pad;
     return buckets.map((b, i) => [
       pad + i * stepX,
       h - (pad + (mapper(b) / max) * pH),
