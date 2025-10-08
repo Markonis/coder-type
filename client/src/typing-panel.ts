@@ -63,6 +63,7 @@ export class TypingPanel extends HTMLElement {
 
   private processChar(char: string) {
     if (char === "Shift") return;
+    if (char === "Alt") return;
 
     if (char === "Backspace") {
       if (this.index === 0) return;
