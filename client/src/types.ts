@@ -18,3 +18,15 @@ export type TypingReport = {
   duration: number;
   tracked: TrackedTypeDetail[];
 };
+
+export type HistoryEntry = {
+  id: string;
+  report: TypingReport;
+  snippet: {
+    name: string;
+    language: string;
+  };
+  timestamp: number;
+  cpm: number;
+  acc: number;
+};

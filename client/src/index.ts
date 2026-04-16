@@ -4,6 +4,9 @@ import { snippets } from "./snippet-library";
 import { SnippetSelect } from "./snippet-select";
 import { TypingPanel } from "./typing-panel";
 import { TypingTracker } from "./typing-tracker";
+import { Tabs } from "./components/Tabs/tabs";
+import { HistoryView } from "./history-view";
+import { HistoryStorage } from "./history-storage";
 
 declare global {
   // deno-lint-ignore no-explicit-any
@@ -18,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const reportView = document.querySelector(ReportView.tag)!;
   const next = document.getElementById("next")!;
   const link = document.getElementById("snippet-url")! as HTMLAnchorElement;
+  const tabs = document.querySelector(Tabs.tag)!;
+  const historyView = document.querySelector(HistoryView.tag)!;
 
   let snippetIndex = 0;
   function loadSnippet(index: number) {
@@ -43,6 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   typingTracker.addEventListener(TypingTracker.events.finish, (evt) => {
     typingPanel.enabled = false;
+    
+    const currentSnippet = snippets[snippetIndex];
+    HistoryStorage.save(evt.detail, {
+      name: currentSnippet.label,
+      language: currentSnippet.language,
+    });
+    
     reportModal.show();
     reportView.show(evt.detail);
   });
@@ -57,5 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   next.addEventListener("click", () => {
     select.selectIndex((snippetIndex + 1) % snippets.length);
+  });
+
+  tabs.addEventListener(Tabs.events.change, (evt) => {
+    if (evt.detail.activeTab === "history") {
+      historyView.refresh();
+    }
   });
 });
