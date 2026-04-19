@@ -36,7 +36,17 @@
 </head>
 <body data-bs-theme="dark">
   <div class="container p-4">
-    <h1>CoderType 2.0</h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="m-0">CoderType 2.0</h1>
+      <div id="auth-container">
+        <button id="login-btn" class="btn btn-outline-primary btn-sm">Login with Google</button>
+        <div id="user-info" class="d-none align-items-center gap-2">
+          <span id="user-email" class="small text-secondary"></span>
+          <button id="history-btn" class="btn btn-outline-info btn-sm">History</button>
+          <button id="logout-btn" class="btn btn-outline-secondary btn-sm">Logout</button>
+        </div>
+      </div>
+    </div>
     <blockquote>
       Talk is cheap. Show me the code!
       <cite>- Linus Torvalds</cite>
@@ -68,6 +78,31 @@
         to get information about the license of each snippet.
       </p>
     </footer>
+  </div>
+
+  <div class="modal fade" id="history-modal" tabindex="-1" aria-labelledby="historyLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="historyLabel">History</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Snippet</th>
+                <th>CPM</th>
+                <th>Acc</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="history-list">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="reportLabel" aria-hidden="true">

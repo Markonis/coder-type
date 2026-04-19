@@ -11,7 +11,7 @@ export type TypeDetail = {
 
 export type TrackedTypeDetail = {
   timestamp: number;
-  detail: TypeDetail | null;
+  detail?: TypeDetail;
 };
 
 export type TypingReport = {

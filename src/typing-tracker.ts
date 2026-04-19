@@ -38,7 +38,7 @@ export class TypingTracker extends HTMLElement {
     return !!this.interval;
   }
 
-  onType(detail: TypeDetail | null) {
+  onType(detail?: TypeDetail) {
     this.update();
 
     if (this.startTime === null) {

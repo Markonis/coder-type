@@ -2,5 +2,9 @@
   "compilerOptions": {
     "strict": true,
     "lib": ["DOM", "ESNext"]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "base44/.types/types.d.ts"
+  ]
 }

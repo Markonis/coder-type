@@ -1,0 +1,51 @@
+{
+  "name": "Session",
+  "description": "Stores a typing session record for a player.",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL of the code snippet that was played."
+    },
+    "cpm": {
+      "type": "number",
+      "description": "Characters per minute for the session."
+    },
+    "acc": {
+      "type": "number",
+      "description": "Accuracy (0 to 1) for the session."
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Total duration of the session in milliseconds."
+    },
+    "tracked": {
+      "type": "array",
+      "description": "Detailed telemetry of each keystroke.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "object",
+            "properties": {
+              "isCorrect": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["url", "cpm", "acc", "duration", "tracked"],
+  "rls": {
+    "create": { "user_condition": { "id": "{{user.id}}" } },
+    "read": true,
+    "update": { "created_by": "{{user.email}}" },
+    "delete": { "created_by": "{{user.email}}" }
+  }
+}

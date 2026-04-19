@@ -7,7 +7,7 @@ declare global {
   interface HTMLElementTagNameMap extends TypingPanelTagNameMap {}
 
   interface TypingPanelEventMap {
-    [TypingPanel.events.type]: CustomEvent<TypeDetail | null>;
+    [TypingPanel.events.type]: CustomEvent<TypeDetail | undefined>;
   }
   interface ElementEventMap extends TypingPanelEventMap {}
 

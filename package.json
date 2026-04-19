@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "rm -rf dist && npx parcel src/index.html",
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist && npx parcel build --no-source-maps src/index.html",
+    "server": "cd base44 && npx base44 dev"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4",
+    "typescript": "5.9.2"
+  },
+  "alias": {
+    "uuid": "./node_modules/uuid/dist/esm-browser/index.js"
+  },
+  "browserslist": [
+    "last 2 versions and not dead"
+  ],
+  "dependencies": {
+    "@base44/sdk": "^0.8.26",
+    "buffer": "^6.0.3",
+    "uuid": "^9.0.1"
+  }
+}
