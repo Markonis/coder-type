@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("logout-btn")!;
   const historyBtn = document.getElementById("history-btn")!;
   const userInfo = document.getElementById("user-info")!;
-  const userEmail = document.getElementById("user-email")!;
   const historyList = document.getElementById("history-list")!;
   const historyModal = new bootstrap.Modal(document.getElementById("history-modal")!);
 
@@ -33,11 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       loginBtn.classList.add("d-none");
       userInfo.classList.remove("d-none");
-      userEmail.textContent = user.email;
     } else {
       loginBtn.classList.remove("d-none");
       userInfo.classList.add("d-none");
-      userEmail.textContent = "";
     }
   }
 
