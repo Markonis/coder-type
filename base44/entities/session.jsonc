@@ -43,7 +43,7 @@
   },
   "required": ["url", "cpm", "acc", "duration", "tracked"],
   "rls": {
-    "create": { "user_condition": { "id": "{{user.id}}" } },
+    "create": { "created_by": "{{user.email}}" },
     "read": true,
     "update": { "created_by": "{{user.email}}" },
     "delete": { "created_by": "{{user.email}}" }
